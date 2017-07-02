@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Frameworks">
+      <FileRef
+         location = "group:Carthage/Checkouts/Quick/Quick.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/Nimble/Nimble.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/socket.io-client-swift/Socket.IO-Client-Swift.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/RxSwiftExt/RxSwiftExt.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/RxSwift/Rx.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/Reachability.swift/Reachability.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/Locksmith/Locksmith.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Carthage/Checkouts/Alamofire/Alamofire.xcodeproj">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "container:Spreadbot_iOS.xcodeproj">
+   </FileRef>
+</Workspace>
