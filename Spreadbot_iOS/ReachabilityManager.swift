@@ -8,7 +8,7 @@
 
 import Foundation
 import RxSwift
-import ReachabilitySwift
+import Reachability
 
 class ReachabilityManager {
     

@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import Alamofire
 import RxSwift
+import RxSwiftExt
 import Locksmith
 
 class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
@@ -22,8 +24,7 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
     
     private let lock = NSLock()
     
-    private let online: Observable<Bool>
-    private let spreadbotServerCredsDictionary = Locksmith.loadDataForUserAccount("spreadbotServerCreds")
+    private let spreadbotServerCredsDictionary = Locksmith.loadDataForUserAccount(userAccount: "spreadbotServerCreds")
     
     private var baseURLString: String
     private var accessToken: String
@@ -33,11 +34,24 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
     private var requestsToRetry: [RequestRetryCompletion] = []
     
     // MARK: - Initialization
-    public init(online: Observable<Bool> = connectedToInternetOrStubbing()) {
-        self.baseURLString = baseURLString()
-        self.accessToken = accessToken()
-        self.refreshToken = refreshToken()
-        self.online = online
+    public init() {
+        if let baseURL = ProcessInfo.processInfo.environment["SPREADBOT_AUTH_URL"] {
+            baseURLString = baseURL
+        } else {
+            baseURLString = "http://localhost:8080/raw"
+        }
+        
+        if let authTkn = spreadbotServerCredsDictionary?["accessToken"] as? String {
+            accessToken = authTkn
+        } else {
+            accessToken = "pleaseUpdateMe!"
+        }
+        
+        if let refreshTkn = spreadbotServerCredsDictionary?["refreshToken"] as? String {
+            refreshToken = refreshTkn
+        } else {
+            refreshToken = "pleaseUpdateMe!"
+        }
     }
     
     // MARK: - RequestAdapter
@@ -48,13 +62,7 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
             urlRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
             return urlRequest
         }
-        
-        return online
-            .ignore(false)      // Wait until we're online
-            .take(1)            // Take 1 to make sure we only invoke the API once.
-            .flatMap { _ in     // Turn the online state into a network request
-                return urlRequest
-        }
+        return urlRequest
     }
     
     // MARK: - RequestRetrier
@@ -74,11 +82,6 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
                     if let accessToken = accessToken, let refreshToken = refreshToken {
                         strongSelf.accessToken = accessToken
                         strongSelf.refreshToken = refreshToken
-                        try Locksmith.updateData([
-                            "accessToken": accessToken,
-                            "refreshToken": refreshToken
-                            ], forUserAccount: "spreadbotServerCreds"
-                        )
                     }
                     
                     strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }
@@ -114,6 +117,11 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
                     let accessToken = json["access_token"] as? String,
                     let refreshToken = json["refresh_token"] as? String
                 {
+                    do { try Locksmith.updateData(data: [
+                        "accessToken": accessToken,
+                        "refreshToken": refreshToken
+                        ], forUserAccount: "spreadbotServerCreds")
+                    } catch {}
                     completion(true, accessToken, refreshToken)
                 } else {
                     completion(false, nil, nil)
@@ -128,40 +136,9 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
     private let reachabilityManager = ReachabilityManager()
     
     // An observable that completes when the app gets online (possibly completes immediately).
-    private func connectedToInternetOrStubbing() -> Observable<Bool> {
-        let stubbing = Observable.just(ProcessInfo.processInfo.environment["IS_STUBBING"] ?? false)
-        
-        guard let online = reachabilityManager?.reach else {
-            return stubbing
-        }
-        
-        return [online, stubbing].combineLatestOr()
+    private func connectedToInternet() -> Observable<Bool> {
+        let online = reachabilityManager?.reach
+        return online!
     }
-    
-    // MARK: - Private - Helper Functions
-    
-    private func baseURLString() {
-        if let baseURL = ProcessInfo.processInfo.environment["SPREADBOT_AUTH_URL"] {
-            return baseURL
-        } else {
-            return "http://localhost:8080/raw"   
-        }
-    }
-    
-    private func accessToken() {
-        if let authTkn = spreadbotServerCredsDictionary["accessToken"] as? String {
-            return authTkn
-        } else {
-            return "pleaseUpdateMe!" 
-        }
-    }
-    
-    private func refreshToken() {
-        if let refreshTkn = spreadbotServerCredsDictionary["refreshToken"] as? String {
-            return refreshTkn
-        } else {
-            return "pleaseUpdateMe!"
-        }
-    }
-    
+
 }

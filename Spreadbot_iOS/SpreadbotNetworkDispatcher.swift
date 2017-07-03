@@ -11,8 +11,8 @@ import RxSwift
 
 protocol SpreadbotNetworkDispatcher {
     
-    static func getData(path: String) -> Observable<Any>
+    func getData(path: String) -> Observable<Any?>
     
-    static func postData(path: String, payload: NSData) -> Observable<Any>
+    func postData(path: String, payload: NSData) -> Observable<Any?>
     
 }

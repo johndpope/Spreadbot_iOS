@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import RxSwift
+import RxSwiftExt
 
 class AlamofireNetworkDispatcher: SpreadbotNetworkDispatcher {
     
@@ -20,44 +21,38 @@ class AlamofireNetworkDispatcher: SpreadbotNetworkDispatcher {
         sessionManager.retrier = spreadbotAuthHandler
     }
     
-    static func getData(path: String) -> Observable<AnyObject?> {
-        return create { observer in
-            let request = sessionManager.request(AlamofireRouter.getData(path))
+    func getData(path: String) -> Observable<Any?> {
+        return Observable.create { observer in
+            self.sessionManager.request(AlamofireRouter.getData(topic: path))
                 .validate(statusCode: 200..<300)
-                .response(completionHandler: { request, response, data, error in
-                    
-                    if ((error) != nil) {
-                        observer.on(.Error(error!))
-                    } else {
-                        observer.on(.Next(data))
-                        observer.on(.Completed)
+                .responseData(completionHandler: { response in
+                    switch response.result {
+                    case .success:
+                        observer.on(.next(response.result.value))
+                        observer.on(.completed)
+                    case .failure(let error):
+                        observer.on(.error(error))
                     }
                     
                 })
-            return AnonymousDisposable {
-                request.cancel()
-            }
+            return Disposables.create()
         }
     }
     
-    static func postData(path: String, payload: NSData) -> Observable<AnyObject?> {
-        return create { observer in
-            let request = sessionManager.request(AlamofireRouter.postData(path), parameters: payload)
-                .validate(statusCode: 200..<300)
-                .response(completionHandler: { request, response, data, error in
-                    
-                    if ((error) != nil) {
-                        observer.on(.Error(error!))
-                    } else {
-                        observer.on(.Next(data))
-                        observer.on(.Completed)
+    func postData(path: String, payload: NSData) -> Observable<Any?> {
+        return Observable.create { observer in
+            self.sessionManager.request(AlamofireRouter.postData(topic: path, payload: payload))
+                .responseData(completionHandler: { response in
+                    switch response.result {
+                    case .success:
+                        observer.on(.next(response.result.value))
+                        observer.on(.completed)
+                    case .failure(let error):
+                        observer.on(.error(error))
                     }
                     
                 })
-            return AnonymousDisposable {
-                request.cancel()
-            }
+            return Disposables.create()
         }
     }
-    
 }

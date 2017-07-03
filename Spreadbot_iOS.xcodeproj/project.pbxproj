@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40F73231F0A71E400D37783 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40F73221F0A71E400D37783 /* RxCocoa.framework */; };
+		C40F73251F0A752700D37783 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40F73241F0A752700D37783 /* RxBlocking.framework */; };
+		C40F73271F0A753400D37783 /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C40F73261F0A753400D37783 /* RxTest.framework */; };
 		C41C9B771F095EA0001E6AC6 /* Spreadbot_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41C9B6D1F095E9F001E6AC6 /* Spreadbot_iOS.framework */; };
 		C41C9B7C1F095EA0001E6AC6 /* Spreadbot_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9B7B1F095EA0001E6AC6 /* Spreadbot_iOSTests.swift */; };
 		C41C9B7E1F095EA0001E6AC6 /* Spreadbot_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C41C9B701F095E9F001E6AC6 /* Spreadbot_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,11 +24,9 @@
 		C41C9B991F096683001E6AC6 /* AlamofireAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9B981F096683001E6AC6 /* AlamofireAuthHandler.swift */; };
 		C41C9B9B1F0966D7001E6AC6 /* AlamofireNetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9B9A1F0966D7001E6AC6 /* AlamofireNetworkDispatcher.swift */; };
 		C41C9B9D1F096736001E6AC6 /* AlamofireRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9B9C1F096736001E6AC6 /* AlamofireRouter.swift */; };
-		C41C9B9F1F096763001E6AC6 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9B9E1F096763001E6AC6 /* CoreDataService.swift */; };
 		C41C9BA11F0967A7001E6AC6 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9BA01F0967A7001E6AC6 /* ReachabilityManager.swift */; };
 		C41C9BA31F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9BA21F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift */; };
 		C41C9BA51F096863001E6AC6 /* SpreadbotRESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9BA41F096863001E6AC6 /* SpreadbotRESTClient.swift */; };
-		C41C9BA71F096882001E6AC6 /* SpreadbotTopicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9BA61F096882001E6AC6 /* SpreadbotTopicData.swift */; };
 		C41C9BA91F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9BA81F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C40F73221F0A71E400D37783 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = "Carthage/Checkouts/RxSwift/build/Debug-iphoneos/RxCocoa.framework"; sourceTree = "<group>"; };
+		C40F73241F0A752700D37783 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = "Carthage/Checkouts/RxSwift/build/Debug-iphoneos/RxBlocking.framework"; sourceTree = "<group>"; };
+		C40F73261F0A753400D37783 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = "Carthage/Checkouts/RxSwift/build/Debug-iphoneos/RxTest.framework"; sourceTree = "<group>"; };
 		C41C9B6D1F095E9F001E6AC6 /* Spreadbot_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Spreadbot_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41C9B701F095E9F001E6AC6 /* Spreadbot_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spreadbot_iOS.h; sourceTree = "<group>"; };
 		C41C9B711F095E9F001E6AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,11 +61,9 @@
 		C41C9B981F096683001E6AC6 /* AlamofireAuthHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireAuthHandler.swift; sourceTree = "<group>"; };
 		C41C9B9A1F0966D7001E6AC6 /* AlamofireNetworkDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkDispatcher.swift; sourceTree = "<group>"; };
 		C41C9B9C1F096736001E6AC6 /* AlamofireRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireRouter.swift; sourceTree = "<group>"; };
-		C41C9B9E1F096763001E6AC6 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		C41C9BA01F0967A7001E6AC6 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		C41C9BA21F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadbotNetworkDispatcher.swift; sourceTree = "<group>"; };
 		C41C9BA41F096863001E6AC6 /* SpreadbotRESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadbotRESTClient.swift; sourceTree = "<group>"; };
-		C41C9BA61F096882001E6AC6 /* SpreadbotTopicData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadbotTopicData.swift; sourceTree = "<group>"; };
 		C41C9BA81F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadbotWebSocketClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40F73251F0A752700D37783 /* RxBlocking.framework in Frameworks */,
+				C40F73231F0A71E400D37783 /* RxCocoa.framework in Frameworks */,
 				C41C9B931F0963EB001E6AC6 /* SocketIO.framework in Frameworks */,
 				C41C9B911F0963E0001E6AC6 /* RxSwiftExt.framework in Frameworks */,
 				C41C9B8F1F0963DA001E6AC6 /* RxSwift.framework in Frameworks */,
@@ -83,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40F73271F0A753400D37783 /* RxTest.framework in Frameworks */,
 				C41C9B971F096482001E6AC6 /* Quick.framework in Frameworks */,
 				C41C9B951F09647B001E6AC6 /* Nimble.framework in Frameworks */,
 				C41C9B771F095EA0001E6AC6 /* Spreadbot_iOS.framework in Frameworks */,
@@ -119,11 +124,9 @@
 				C41C9B981F096683001E6AC6 /* AlamofireAuthHandler.swift */,
 				C41C9B9A1F0966D7001E6AC6 /* AlamofireNetworkDispatcher.swift */,
 				C41C9B9C1F096736001E6AC6 /* AlamofireRouter.swift */,
-				C41C9B9E1F096763001E6AC6 /* CoreDataService.swift */,
 				C41C9BA01F0967A7001E6AC6 /* ReachabilityManager.swift */,
 				C41C9BA21F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift */,
 				C41C9BA41F096863001E6AC6 /* SpreadbotRESTClient.swift */,
-				C41C9BA61F096882001E6AC6 /* SpreadbotTopicData.swift */,
 				C41C9BA81F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift */,
 			);
 			path = Spreadbot_iOS;
@@ -141,6 +144,9 @@
 		C41C9B871F0963C2001E6AC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C40F73261F0A753400D37783 /* RxTest.framework */,
+				C40F73241F0A752700D37783 /* RxBlocking.framework */,
+				C40F73221F0A71E400D37783 /* RxCocoa.framework */,
 				C41C9B961F096482001E6AC6 /* Quick.framework */,
 				C41C9B941F09647B001E6AC6 /* Nimble.framework */,
 				C41C9B921F0963EB001E6AC6 /* SocketIO.framework */,
@@ -264,8 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C41C9BA71F096882001E6AC6 /* SpreadbotTopicData.swift in Sources */,
-				C41C9B9F1F096763001E6AC6 /* CoreDataService.swift in Sources */,
 				C41C9B9D1F096736001E6AC6 /* AlamofireRouter.swift in Sources */,
 				C41C9BA31F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift in Sources */,
 				C41C9B9B1F0966D7001E6AC6 /* AlamofireNetworkDispatcher.swift in Sources */,
@@ -405,6 +409,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/RxSwift/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Spreadbot_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -425,6 +433,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/RxSwift/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Spreadbot_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -439,6 +451,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/RxSwift/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Spreadbot_iOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spreadbot.Spreadbot-iOSTests";
@@ -451,6 +467,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Checkouts/RxSwift/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Spreadbot_iOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spreadbot.Spreadbot-iOSTests";
@@ -478,6 +498,7 @@
 				C41C9B831F095EA0001E6AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C41C9B841F095EA0001E6AC6 /* Build configuration list for PBXNativeTarget "Spreadbot_iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +507,7 @@
 				C41C9B861F095EA0001E6AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -14,7 +14,7 @@ enum AlamofireRouter: URLRequestConvertible {
     static let baseURLString = ProcessInfo.processInfo.environment["SPREADBOT_URL"] ?? "http://localhost:8080/raw"
     
     case getData(topic: String)
-    case postData(topic: String, parameters: Parameters)
+    case postData(topic: String, payload: NSData)
     
     var method: HTTPMethod {
         switch self {
@@ -41,16 +41,15 @@ enum AlamofireRouter: URLRequestConvertible {
         
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
-        
+
         switch self {
-        case .getData(_):
-            urlRequest = try URLEncoding.default.encode(urlRequest)
-        case .postData(_, let parameters):
-            urlRequest = try URLEncoding.default.encode(urlRequest)
-            urlRequest.httpBody = parameters
+        case .postData(_, let payload):
+            urlRequest.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
+            urlRequest.httpBody = payload as Data
         default:
             break
         }
+        
         return urlRequest
     }
     
