@@ -118,9 +118,67 @@ $ git submodule update --init --recursive
 - Add the downloaded `Spreadbot_iOS.framework`.
 - And that's it!
 
+## Configuration
+
+There are a number of configuration settings that need to be set for the Spreadbot iOS client. These are:
+
+- ENV VARS
+```bash
+    SPREADBOT_URL
+    SPREADBOT_AUTH_URL
+```
+- KEY CHAIN
+	User a/c -> `spreadbotServerCreds`
+```bash
+    accessToken
+    refreshToken
+```
+
 ## Usage
 
+#### Websockets
 
+If a websocket connection is lost due to poor network connectivity, it will attempt to reconnect every 3 seconds.
+
+Connect
+```swift
+SpreadbotWebSocketClient.sharedInstance.establishConnection()
+```
+Disconnect
+```swift
+SpreadbotWebSocketClient.sharedInstance.closeConnection()
+```
+Subscribe
+```swift
+SpreadbotWebSocketClient.sharedInstance
+	.subscribe(path: String, completionHandler: @escaping (Any) -> Void)
+```
+Send Message
+```swift
+SpreadbotWebSocketClient.sharedInstance
+	.sendMessage(path: String, eventData: NSData, completionHandler: @escaping () -> Void)
+```
+
+#### REST API
+
+In the event of a loss of network connectivity, up-to a maximum of 10 network requests will be buffered till the connection is restored.
+
+Up-to 3 attempts will be made to get a response with an exponential delay between each retry request.
+
+Two second timeout limit.
+
+Requests are asynchronous. Responses are handled on the main thread.
+
+GET
+```swift
+SpreadbotRESTClient()
+	.getData(path: String, onSuccess: @escaping (Any) -> Void, onError: @escaping (NSError) -> Void)
+```
+POST
+```swift
+SpreadbotRESTClient()
+	.postData(path: String, payload: NSData, onSuccess: @escaping (Any) -> Void, onError: @escaping (NSError) -> Void)
+```
 
 ## License
 

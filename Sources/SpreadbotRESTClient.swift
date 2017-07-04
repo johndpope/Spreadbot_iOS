@@ -34,7 +34,7 @@ class SpreadbotRESTClient {
         let online = connectedToInternet()
         dispatcher.getData(path: path)
             // Pause if no internet connection
-            .pausableBuffered(online, limit: 3)
+            .pausableBuffered(online, limit: 10)
             // Set 3 attempts to get response
             .retry(.exponentialDelayed(maxCount: 3, initial: 2.0, multiplier: 1.5), scheduler: backgroundWorkScheduler as! SchedulerType)
             // Set 2 seconds timeout
