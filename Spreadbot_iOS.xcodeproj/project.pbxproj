@@ -100,7 +100,7 @@
 		C41C9B631F095E9F001E6AC6 = {
 			isa = PBXGroup;
 			children = (
-				C41C9B6F1F095E9F001E6AC6 /* Spreadbot_iOS */,
+				C41C9B6F1F095E9F001E6AC6 /* Sources */,
 				C41C9B7A1F095EA0001E6AC6 /* Spreadbot_iOSTests */,
 				C41C9B6E1F095E9F001E6AC6 /* Products */,
 				C41C9B871F0963C2001E6AC6 /* Frameworks */,
@@ -116,7 +116,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C41C9B6F1F095E9F001E6AC6 /* Spreadbot_iOS */ = {
+		C41C9B6F1F095E9F001E6AC6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				C41C9B701F095E9F001E6AC6 /* Spreadbot_iOS.h */,
@@ -129,7 +129,7 @@
 				C41C9BA41F096863001E6AC6 /* SpreadbotRESTClient.swift */,
 				C41C9BA81F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift */,
 			);
-			path = Spreadbot_iOS;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		C41C9B7A1F095EA0001E6AC6 /* Spreadbot_iOSTests */ = {
@@ -409,11 +409,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/RxSwift/build/Debug-iphoneos",
-				);
-				INFOPLIST_FILE = Spreadbot_iOS/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spreadbot.Spreadbot-iOS";
@@ -433,11 +429,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/RxSwift/build/Debug-iphoneos",
-				);
-				INFOPLIST_FILE = Spreadbot_iOS/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spreadbot.Spreadbot-iOS";
@@ -451,10 +443,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/RxSwift/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = Spreadbot_iOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spreadbot.Spreadbot-iOSTests";
@@ -467,10 +455,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Checkouts/RxSwift/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = Spreadbot_iOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.spreadbot.Spreadbot-iOSTests";
