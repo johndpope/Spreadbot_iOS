@@ -23,7 +23,7 @@ Spreadbot client for iOS/OS X
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1.0+ is required to build Spreadbot_iOS 0.0.1+.
+> CocoaPods 1.1.0+ is required to build Spreadbot_iOS 1.0.0+.
 
 To integrate Spreadbot_iOS into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -32,7 +32,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.1'
 use_frameworks!
 
-pod 'Spreadbot_iOS', '~> 0.0.1'
+pod 'Spreadbot_iOS', '~> 1.0.0'
 ```
 
 Then, run the following command:
@@ -55,7 +55,7 @@ $ brew install carthage
 To integrate Spreadbot_iOS into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Spreadbot_iOS/Spreadbot_iOS" ~> 0.0.1
+github "Spreadbot_iOS/Spreadbot_iOS" ~> 1.0.0
 ```
 ### Swift Package Manager
 
@@ -67,7 +67,7 @@ import PackageDescription
 let package = Package(
     name: "HelloSpreadbot_iOS",
     dependencies: [
-        .Package(url: "https://github.com/Spreadbot/Spreadbot_iOS.git", "0.0.1")
+        .Package(url: "https://github.com/Spreadbot/Spreadbot_iOS.git", "1.0.0")
     ]
 )
 ```
@@ -120,7 +120,7 @@ $ git submodule update --init --recursive
 
 ## Usage
 
-Check the [documentation](http://docs.spreadbot.io) for details.
+
 
 ## License
 
