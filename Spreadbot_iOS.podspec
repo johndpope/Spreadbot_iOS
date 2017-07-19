@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
  s.platforms     = { :ios => "9.0", :osx => "10.10" }
  s.requires_arc = true
  s.platform = :ios, "9.1"
- s.source_files = "Spreadbot_iOS/**/*.{h,swift}"
+ s.source_files = "Sources/*.{h,swift}"
 
  s.dependency "Alamofire"
  s.dependency "RxSwift"
