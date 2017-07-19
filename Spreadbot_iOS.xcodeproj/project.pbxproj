@@ -15,7 +15,6 @@
 		C41C9B7E1F095EA0001E6AC6 /* Spreadbot_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C41C9B701F095E9F001E6AC6 /* Spreadbot_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C41C9B891F0963C3001E6AC6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41C9B881F0963C3001E6AC6 /* Alamofire.framework */; };
 		C41C9B8B1F0963C9001E6AC6 /* Locksmith.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41C9B8A1F0963C9001E6AC6 /* Locksmith.framework */; };
-		C41C9B8D1F0963CE001E6AC6 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41C9B8C1F0963CE001E6AC6 /* Reachability.framework */; };
 		C41C9B8F1F0963DA001E6AC6 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41C9B8E1F0963DA001E6AC6 /* RxSwift.framework */; };
 		C41C9B911F0963E0001E6AC6 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41C9B901F0963E0001E6AC6 /* RxSwiftExt.framework */; };
 		C41C9B931F0963EB001E6AC6 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41C9B921F0963EB001E6AC6 /* SocketIO.framework */; };
@@ -77,7 +76,6 @@
 				C41C9B931F0963EB001E6AC6 /* SocketIO.framework in Frameworks */,
 				C41C9B911F0963E0001E6AC6 /* RxSwiftExt.framework in Frameworks */,
 				C41C9B8F1F0963DA001E6AC6 /* RxSwift.framework in Frameworks */,
-				C41C9B8D1F0963CE001E6AC6 /* Reachability.framework in Frameworks */,
 				C41C9B8B1F0963C9001E6AC6 /* Locksmith.framework in Frameworks */,
 				C41C9B891F0963C3001E6AC6 /* Alamofire.framework in Frameworks */,
 			);

@@ -1,6 +1,6 @@
 ## Spreadbot_iOS
 
-Spreadbot client for iOS/OS X
+Spreadbot client for iOS
 
 - [Requirements](#requirements)
 - [Installation](#installation)
