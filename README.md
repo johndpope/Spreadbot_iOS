@@ -55,7 +55,7 @@ $ brew install carthage
 To integrate Spreadbot_iOS into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Spreadbot_iOS/Spreadbot_iOS" ~> 1.0.0
+github "spreadbot/Spreadbot_iOS" ~> 1.0.0
 ```
 ### Swift Package Manager
 
