@@ -11,7 +11,7 @@ import RxSwift
 import RxSwiftExt
 import SocketIO
 
-class SpreadbotWebSocketClient: NSObject {
+public class SpreadbotWebSocketClient: NSObject {
 
     static let sharedInstance = SpreadbotWebSocketClient()
     

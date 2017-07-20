@@ -38,6 +38,7 @@ pod 'Spreadbot_iOS', '~> 1.0.0'
 Then, run the following command:
 
 ```bash
+$ pod setup
 $ pod install
 ```
 
@@ -142,20 +143,20 @@ If a websocket connection is lost due to poor network connectivity, it will atte
 
 Connect
 ```swift
-SpreadbotWebSocketClient.sharedInstance.establishConnection()
+Spreadbot_iOS.SpreadbotWebSocketClient.sharedInstance.establishConnection()
 ```
 Disconnect
 ```swift
-SpreadbotWebSocketClient.sharedInstance.closeConnection()
+Spreadbot_iOS.SpreadbotWebSocketClient.sharedInstance.closeConnection()
 ```
 Subscribe
 ```swift
-SpreadbotWebSocketClient.sharedInstance
+Spreadbot_iOS.SpreadbotWebSocketClient.sharedInstance
 	.subscribe(path: String, completionHandler: @escaping (Any) -> Void)
 ```
 Send Message
 ```swift
-SpreadbotWebSocketClient.sharedInstance
+Spreadbot_iOS.SpreadbotWebSocketClient.sharedInstance
 	.sendMessage(path: String, eventData: NSData, completionHandler: @escaping () -> Void)
 ```
 
@@ -171,12 +172,12 @@ Requests are asynchronous. Responses are handled on the main thread.
 
 GET
 ```swift
-SpreadbotRESTClient()
+Spreadbot_iOS.SpreadbotRESTClient()
 	.getData(path: String, onSuccess: @escaping (Any) -> Void, onError: @escaping (NSError) -> Void)
 ```
 POST
 ```swift
-SpreadbotRESTClient()
+Spreadbot_iOS.SpreadbotRESTClient()
 	.postData(path: String, payload: NSData, onSuccess: @escaping (Any) -> Void, onError: @escaping (NSError) -> Void)
 ```
 

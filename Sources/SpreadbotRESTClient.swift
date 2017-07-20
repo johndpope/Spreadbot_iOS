@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxSwiftExt
 
-class SpreadbotRESTClient {
+public class SpreadbotRESTClient {
     
     private let dispatcher: SpreadbotNetworkDispatcher
     private let backgroundWorkScheduler: ImmediateSchedulerType
