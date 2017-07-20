@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 import RxSwift
 import RxSwiftExt
-import Locksmith
 
 class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
     private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?, _ refreshToken: String?) -> Void
@@ -23,43 +22,25 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
     }()
     
     private let lock = NSLock()
-    
-    private let spreadbotServerCredsDictionary = Locksmith.loadDataForUserAccount(userAccount: "spreadbotServerCreds")
-    
-    private var baseURLString: String
+            
+    private var isRefreshing = false
+    private var requestsToRetry: [RequestRetryCompletion] = []
+
     private var accessToken: String
     private var refreshToken: String
     
-    private var isRefreshing = false
-    private var requestsToRetry: [RequestRetryCompletion] = []
-    
     // MARK: - Initialization
     public init() {
-        if let baseURL = ProcessInfo.processInfo.environment["SPREADBOT_AUTH_URL"] {
-            baseURLString = baseURL
-        } else {
-            baseURLString = "http://localhost:8080/raw"
-        }
-        
-        if let authTkn = spreadbotServerCredsDictionary?["accessToken"] as? String {
-            accessToken = authTkn
-        } else {
-            accessToken = "pleaseUpdateMe!"
-        }
-        
-        if let refreshTkn = spreadbotServerCredsDictionary?["refreshToken"] as? String {
-            refreshToken = refreshTkn
-        } else {
-            refreshToken = "pleaseUpdateMe!"
-        }
+        accessToken = SpreadbotConfig.accessToken
+        refreshToken = SpreadbotConfig.refreshToken
     }
-    
+        
     // MARK: - RequestAdapter
     
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
-        if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(baseURLString) {
+        if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(SpreadbotConfig.baseURLString) {
             var urlRequest = urlRequest
-            urlRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
+            urlRequest.setValue("Bearer " + SpreadbotConfig.accessToken, forHTTPHeaderField: "Authorization")
             return urlRequest
         }
         return urlRequest
@@ -100,7 +81,7 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
         
         isRefreshing = true
         
-        let urlString = "\(baseURLString)/auth/token"
+        let urlString = "\(SpreadbotConfig.baseURLString)/auth/token"
         
         let parameters: [String: Any] = [
             "access_token": accessToken,
@@ -117,11 +98,6 @@ class AlamofireAuthHandler: RequestAdapter, RequestRetrier {
                     let accessToken = json["access_token"] as? String,
                     let refreshToken = json["refresh_token"] as? String
                 {
-                    do { try Locksmith.updateData(data: [
-                        "accessToken": accessToken,
-                        "refreshToken": refreshToken
-                        ], forUserAccount: "spreadbotServerCreds")
-                    } catch {}
                     completion(true, accessToken, refreshToken)
                 } else {
                     completion(false, nil, nil)

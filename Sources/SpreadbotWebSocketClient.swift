@@ -13,31 +13,21 @@ import SocketIO
 
 public class SpreadbotWebSocketClient: NSObject {
 
-    static let sharedInstance = SpreadbotWebSocketClient()
-    
-    static let baseURLString = { () -> String in
-        if let baseURL = ProcessInfo.processInfo.environment["SPREADBOT_URL"] {
-            return baseURL
-        } else {
-            return "http://localhost:8080"
-        }
-    }
+    private var socket: SocketIOClient
 
-    var socket: SocketIOClient = SocketIOClient(socketURL: URL(string: "\(baseURLString)/wss/")!, config: [.forceNew(false), .log(false), .reconnects(true), .reconnectAttempts(-1), .reconnectWait(3)])
-    
     override init() {
-        super.init()
+        self.socket = SocketIOClient(socketURL: URL(string: "\(SpreadbotConfig.baseURLString)/wss/")!, config: [.forceNew(false), .log(false), .reconnects(true), .reconnectAttempts(-1), .reconnectWait(3)])
     }
     
-    func establishConnection() {
+    public func establishConnection() {
         socket.connect()
     }
     
-    func closeConnection() {
+    public func closeConnection() {
         socket.disconnect()
     }
     
-    func subscribe(path: String, completionHandler: @escaping (Any) -> Void) {
+    public func subscribe(path: String, completionHandler: @escaping (Any) -> Void) {
         socket.joinNamespace(path)
         socket.onAny {
             print("Got event: \($0.event), with items: \(String(describing: $0.items))")
@@ -45,9 +35,9 @@ public class SpreadbotWebSocketClient: NSObject {
         }
     }
     
-    func sendMessage(path: String, eventData: NSData, completionHandler: @escaping () -> Void) {
-        socket.emit(path, eventData)
-        completionHandler()
+    public func sendMessage(path: String, message: NSData) {
+        socket.emit(path, message)
+        print("Message sent. Path: \(path)")
     }
     
     deinit {

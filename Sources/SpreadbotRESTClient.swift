@@ -17,9 +17,8 @@ public class SpreadbotRESTClient {
     private let mainScheduler: SerialDispatchQueueScheduler
     private let disposeBag = DisposeBag()
     
-    init(dispatcher: SpreadbotNetworkDispatcher) {
-        self.dispatcher = dispatcher
-        
+    init() {
+        self.dispatcher = AlamofireNetworkDispatcher()
         let operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 2
         #if !RX_NO_MODULE
@@ -30,7 +29,7 @@ public class SpreadbotRESTClient {
         self.mainScheduler = MainScheduler.instance
     }
     
-    func getData(path: String, onSuccess: @escaping (Any) -> Void, onError: @escaping (NSError) -> Void) {
+    public func getData(path: String, onSuccess: @escaping (Any) -> Void, onError: @escaping (NSError) -> Void) {
         let online = connectedToInternet()
         dispatcher.getData(path: path)
             // Pause if no internet connection
@@ -61,7 +60,7 @@ public class SpreadbotRESTClient {
         .addDisposableTo(disposeBag)
     }
 
-    func postData(path: String, payload: NSData, onSuccess: @escaping (Any) -> Void, onError: @escaping (NSError) -> Void) {
+    public func postData(path: String, payload: NSData, onSuccess: @escaping (Any) -> Void, onError: @escaping (NSError) -> Void) {
         let online = connectedToInternet()
         dispatcher.postData(path: path, payload: payload)
             // Pause if no internet connection

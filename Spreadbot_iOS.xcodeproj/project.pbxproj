@@ -27,6 +27,7 @@
 		C41C9BA31F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9BA21F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift */; };
 		C41C9BA51F096863001E6AC6 /* SpreadbotRESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9BA41F096863001E6AC6 /* SpreadbotRESTClient.swift */; };
 		C41C9BA91F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41C9BA81F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift */; };
+		C4C334D11F20D83B00E29A9E /* SpreadbotConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C334D01F20D83B00E29A9E /* SpreadbotConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		C41C9BA21F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadbotNetworkDispatcher.swift; sourceTree = "<group>"; };
 		C41C9BA41F096863001E6AC6 /* SpreadbotRESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadbotRESTClient.swift; sourceTree = "<group>"; };
 		C41C9BA81F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadbotWebSocketClient.swift; sourceTree = "<group>"; };
+		C4C334D01F20D83B00E29A9E /* SpreadbotConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpreadbotConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				C41C9BA21F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift */,
 				C41C9BA41F096863001E6AC6 /* SpreadbotRESTClient.swift */,
 				C41C9BA81F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift */,
+				C4C334D01F20D83B00E29A9E /* SpreadbotConfig.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				C41C9B9D1F096736001E6AC6 /* AlamofireRouter.swift in Sources */,
 				C41C9BA31F09683A001E6AC6 /* SpreadbotNetworkDispatcher.swift in Sources */,
+				C4C334D11F20D83B00E29A9E /* SpreadbotConfig.swift in Sources */,
 				C41C9B9B1F0966D7001E6AC6 /* AlamofireNetworkDispatcher.swift in Sources */,
 				C41C9BA91F0968AB001E6AC6 /* SpreadbotWebSocketClient.swift in Sources */,
 				C41C9BA51F096863001E6AC6 /* SpreadbotRESTClient.swift in Sources */,

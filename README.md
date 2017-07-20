@@ -121,18 +121,11 @@ $ git submodule update --init --recursive
 
 ## Configuration
 
-There are a number of configuration settings that need to be set for the Spreadbot iOS client. These are:
-
-- ENV VARS
-```bash
-    SPREADBOT_URL
-    SPREADBOT_AUTH_URL
-```
-- KEY CHAIN
-	User a/c -> `spreadbotServerCreds`
-```bash
-    accessToken
-    refreshToken
+```swift
+SpreadbotConfig.baseURLString = e.g. "http:localhost:8080/raw"    
+SpreadbotConfig.authURLString = e.g. "http:localhost:3000"   
+SpreadbotConfig.accessToken = e.g. "1234"    
+SpreadbotConfig.refreshToken = e.g. "1234"   
 ```
 
 ## Usage
@@ -143,21 +136,21 @@ If a websocket connection is lost due to poor network connectivity, it will atte
 
 Connect
 ```swift
-Spreadbot_iOS.SpreadbotWebSocketClient.sharedInstance.establishConnection()
+Spreadbot_iOS.SpreadbotWebSocketClient.establishConnection()
 ```
 Disconnect
 ```swift
-Spreadbot_iOS.SpreadbotWebSocketClient.sharedInstance.closeConnection()
+Spreadbot_iOS.SpreadbotWebSocketClient.closeConnection()
 ```
 Subscribe
 ```swift
-Spreadbot_iOS.SpreadbotWebSocketClient.sharedInstance
+Spreadbot_iOS.SpreadbotWebSocketClient
 	.subscribe(path: String, completionHandler: @escaping (Any) -> Void)
 ```
 Send Message
 ```swift
-Spreadbot_iOS.SpreadbotWebSocketClient.sharedInstance
-	.sendMessage(path: String, eventData: NSData, completionHandler: @escaping () -> Void)
+Spreadbot_iOS.SpreadbotWebSocketClient
+	.sendMessage(path: String, message: NSData)
 ```
 
 #### REST API

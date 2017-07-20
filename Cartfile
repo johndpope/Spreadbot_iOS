@@ -1,5 +1,4 @@
 github "Alamofire/Alamofire" ~> 4.4
 github "ReactiveX/RxSwift" ~> 3.0
 github "RxSwiftCommunity/RxSwiftExt"
-github "matthewpalmer/Locksmith"
 github "socketio/socket.io-client-swift" ~> 10.0.1

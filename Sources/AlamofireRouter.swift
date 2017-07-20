@@ -10,9 +10,7 @@ import Foundation
 import Alamofire
 
 enum AlamofireRouter: URLRequestConvertible {
-    
-    static let baseURLString = ProcessInfo.processInfo.environment["SPREADBOT_URL"] ?? "http://localhost:8080/raw"
-    
+        
     case getData(topic: String)
     case postData(topic: String, payload: NSData)
     
@@ -37,7 +35,7 @@ enum AlamofireRouter: URLRequestConvertible {
     // MARK: URLRequestConvertible
     
     func asURLRequest() throws -> URLRequest {
-        let url = try AlamofireRouter.baseURLString.asURL()
+        let url = try SpreadbotConfig.baseURLString.asURL()
         
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
