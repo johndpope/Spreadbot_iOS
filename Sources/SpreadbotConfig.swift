@@ -10,7 +10,7 @@ import Foundation
 
 public class SpreadbotConfig {
 
-  public static let baseURLString: String = "http:localhost:8080/raw"
+  public static var baseURLString: String = "http:localhost:8080/raw"
   public static var authURLString: String = "http:localhost:3000"
   public static var accessToken: String = "1234"
   public static var refreshToken: String = "1234"

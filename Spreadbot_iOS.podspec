@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
  s.name = 'Spreadbot_iOS'
- s.version = "1.0.0"
+ s.version = "1.0.3"
  s.license = { :type => "MIT", :file => "LICENSE" }
  s.summary = 'Spreadbot client for iOS/OS X'
  s.homepage = 'http://www.spreadbot.io'

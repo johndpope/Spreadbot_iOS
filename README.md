@@ -32,7 +32,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '9.1'
 use_frameworks!
 
-pod 'Spreadbot_iOS', '~> 1.0.0'
+pod 'Spreadbot_iOS', '~> 1.0.3'
 ```
 
 Then, run the following command:
@@ -56,7 +56,7 @@ $ brew install carthage
 To integrate Spreadbot_iOS into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "spreadbot/Spreadbot_iOS" ~> 1.0.0
+github "spreadbot/Spreadbot_iOS" ~> 1.0.3
 ```
 ### Swift Package Manager
 
@@ -68,7 +68,7 @@ import PackageDescription
 let package = Package(
     name: "HelloSpreadbot_iOS",
     dependencies: [
-        .Package(url: "https://github.com/Spreadbot/Spreadbot_iOS.git", "1.0.0")
+        .Package(url: "https://github.com/Spreadbot/Spreadbot_iOS.git", "1.0.3")
     ]
 )
 ```
